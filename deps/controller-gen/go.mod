@@ -1,6 +1,6 @@
 module example.com/controller-gen
 
-go 1.22.0
+go 1.22.7
 
 require (
 	github.com/fatih/color v1.17.0
