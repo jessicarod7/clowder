@@ -12,6 +12,9 @@ require (
 	sigs.k8s.io/kustomize/cmd/config v0.15.0
 	sigs.k8s.io/kustomize/kyaml v0.18.1
 	sigs.k8s.io/yaml v1.4.0
+)
+
+require (
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
@@ -35,4 +38,5 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20231010175941-2dd684a91f00 // indirect
+	sigs.k8s.io/kustomize/kustomize/v5 v5.5.0 // indirect
 )
