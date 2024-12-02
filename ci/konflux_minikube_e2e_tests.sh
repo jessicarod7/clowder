@@ -4,6 +4,7 @@ set -exv
 
 mkdir -p /var/workdir/bin
 cd /var/workdir/bin
+ln -s /usr/libexec/platform-python3.6 python3
 
 export KUBEBUILDER_ASSETS=/var/workdir/testbin/bin
 
