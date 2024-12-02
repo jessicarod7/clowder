@@ -2,16 +2,16 @@
 
 set -exv
 
-mkdir -p /container_workspace/bin
+mkdir -p /var/workdir/bin
 
-export KUBEBUILDER_ASSETS=/container_workspace/testbin/bin
+export KUBEBUILDER_ASSETS=/var/workdir/testbin/bin
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  ./kubectl" | sha256sum --check
 chmod +x kubectl
-mv kubectl /container_workspace/bin
-export PATH="/container_workspace/bin:$PATH"
+mv kubectl /var/workir/bin
+export PATH="/var/workdir/bin:$PATH"
 
 (
   cd "$(mktemp -d)" &&
