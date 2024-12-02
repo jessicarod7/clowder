@@ -2,7 +2,7 @@
 
 set -exv
 
-cd /var/workdir/source
+cd /var/workdir/bin
 mkdir -p /var/workdir/bin
 
 export KUBEBUILDER_ASSETS=/var/workdir/testbin/bin
@@ -13,7 +13,7 @@ echo "$(cat kubectl.sha256)  ./kubectl" | sha256sum --check
 chmod +x kubectl
 mv kubectl /var/workir/bin
 export PATH="/var/workdir/bin:$PATH"
-
+cd /var/workdir/source
 (
   cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
