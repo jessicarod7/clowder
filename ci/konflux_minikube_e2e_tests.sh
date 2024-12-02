@@ -2,8 +2,8 @@
 
 set -exv
 
-cd /var/workdir/bin
 mkdir -p /var/workdir/bin
+cd /var/workdir/bin
 
 export KUBEBUILDER_ASSETS=/var/workdir/testbin/bin
 
