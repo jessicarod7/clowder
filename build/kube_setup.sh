@@ -26,14 +26,14 @@ if ! command -v jq; then
     exit 1
 fi
 
-# GO is required for yq, check if go is installed
-echo "*** Checking for 'go' ..."
-if ! command -v go; then
-    echo "*** 'go' not found in path. Please install go with:"
-    [[ $PLATFORM == "Darwin" ]] && echo "  'brew install golang' or the instructions at https://golang.org/doc/install" \
-        || echo "  sudo dnf install golang"
-    exit 1
-fi
+## GO is required for yq, check if go is installed
+#echo "*** Checking for 'go' ..."
+#if ! command -v go; then
+#    echo "*** 'go' not found in path. Please install go with:"
+#    [[ $PLATFORM == "Darwin" ]] && echo "  'brew install golang' or the instructions at https://golang.org/doc/install" \
+#        || echo "  sudo dnf install golang"
+#    exit 1
+#fi
 
 # kubectl is required for interactions with the cluster.
 if [ -n "${KUBECTL_CMD}" ]; then
@@ -52,11 +52,11 @@ source build/.build_venv/bin/activate
 pip install --upgrade pip setuptools wheel
 pip install pyyaml
 
-GO_BIN_PATH="$(go env GOPATH)/bin"
+#GO_BIN_PATH="$(go env GOPATH)/bin"
+#
+#export PATH="$PATH:$GO_BIN_PATH"
 
-export PATH="$PATH:$GO_BIN_PATH"
-
-declare -a array BG_PIDS=()
+declare -a BG_PIDS=()
 
 ROOT_DIR=$(pwd)
 DOWNLOAD_DIR="build/operator_bundles"
@@ -187,7 +187,6 @@ function install_prometheus_operator {
 
     cd "$ROOT_DIR"
 }
-
 
 function install_cyndi_operator {
     OPERATOR_NS=cyndi-operator-system

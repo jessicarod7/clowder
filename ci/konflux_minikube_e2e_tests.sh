@@ -4,7 +4,6 @@ set -exv
 
 mkdir -p /var/workdir/bin
 cd /var/workdir/bin
-ln -s /usr/libexec/platform-python3.6 python3
 
 export KUBEBUILDER_ASSETS=/var/workdir/testbin/bin
 
@@ -71,7 +70,7 @@ preferences: {}
 EOM
 
 export PATH="$KUBEBUILDER_ASSETS:$PATH"
-export PATH="/root/go/bin:$PATH"
+#export PATH="/root/go/bin:$PATH"
 
 export KUBECONFIG=$PWD/kube-config
 export KUBECTL_CMD="kubectl "
@@ -84,11 +83,11 @@ export IMAGE_TAG=`git rev-parse --short=8 HEAD`
 
 $KUBECTL_CMD create namespace clowder-system
 
-mkdir artifacts
+#mkdir artifacts
+#
+#make release
 
-make release
-
-cat manifest.yaml > artifacts/manifest.yaml
+#cat manifest.yaml > artifacts/manifest.yaml
 
 $KUBECTL_CMD apply -f manifest.yaml --validate=false -n clowder-system
 
