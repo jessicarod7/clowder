@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/go-toolset:1.22.7-5.1731464728 as builder
+FROM registry.access.redhat.com/ubi8/go-toolset:1.22.7-5.1732646420 as builder
 USER 0
 ENV GOSUMDB=off
 
