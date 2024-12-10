@@ -270,7 +270,7 @@ spec:
           - name: unit-tests
             image: registry.access.redhat.com/ubi8/go-toolset:1.22.7-5.1731464728
             workingDir: /var/workdir/source
-            script: make -dn test
+            script: set -xe && git config --global --add safe.directory /var/workdir/source && make -dn test
         volumes:
           # New volume to store a copy of the source code accessible only to this Task.
           - name: workdir
@@ -323,7 +323,7 @@ spec:
                     name: minikube-ssh-key
                     key: MINIKUBE_ROOTDIR
             # FIXME: this should be handled from the script itself
-            script: set -ex && dnf install -y git openssh-clients python3.12 && ci/konflux_minikube_e2e_tests.sh
+            script: set -ex && dnf install -y git openssh-clients python3.12 make && ci/konflux_minikube_e2e_tests.sh
         volumes:
           # New volume to store a copy of the source code accessible only to this Task.
           - name: workdir
